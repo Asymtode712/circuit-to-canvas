@@ -14,8 +14,8 @@ drawer.configure({
   }
 })
 
-drawer.drawPlatedHole(pcbPlatedHole, {
-  layers: ["copper"]
+drawer.drawElement(pcbPlatedHole, {
+  layers: ["top_copper"]
 })
 
 
@@ -25,3 +25,12 @@ drawer.drawCopper(circuitJsonArray, { layers: ["top"] })
 // Draws all layers by default, soldermask etc.
 drawer.drawCircuitJson(circuitJsonArray)
 ```
+
+## Implementation Notes
+
+There are two "types" of layers:
+
+- Specific drawing layers e.g. "top_copper"
+- Layer groups "top" (includes "top_copper", "top_soldermask")
+
+inner layers go by the name inner1, inner2 etc.
